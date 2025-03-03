@@ -1,1 +1,23 @@
 @import "tailwindcss";
+
+@theme {
+    --color-primary : #FFCA27;
+    --color-background: #303030;
+    --color-background-secondary: #212121;
+    --color-text-primary: #828282;
+    --color-text-secondary: #d8d8d8;
+
+    --text-title: 24px;
+    --text-base: 16px;
+    --text-tiny: 12px;
+    --text-tiny-small: 10px
+
+    --radius-primary: 15px;
+    --radius-secondary: 10px;
+    --radius-covers: 5px;
+}
+
+@font-face {
+    font-family: ;
+    src: url();
+}
