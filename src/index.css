@@ -23,6 +23,10 @@
     --font-kalameh-base: "kalameh-base";
     --font-kalameh-bold: "kalameh-bold";
     --font-kalameh-extra: "kalameh-extra";
+
+    --breakpoint-base: 32.5rem;
+
+    --spacing-base: 32.5rem;
 }
 
 @font-face {
