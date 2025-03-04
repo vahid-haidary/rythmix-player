@@ -15,9 +15,44 @@
     --radius-primary: 15px;
     --radius-secondary: 10px;
     --radius-covers: 5px;
+
+    --font-dana-reg: "dana-reg";
+    --font-dana-base: "dana-base";
+    --font-dana-bold: "dana-bold";
+    --font-kalameh-reg: "kalameh-reg";
+    --font-kalameh-base: "kalameh-base";
+    --font-kalameh-bold: "kalameh-bold";
+    --font-kalameh-extra: "kalameh-extra";
 }
 
 @font-face {
-    font-family: ;
-    src: url();
+    font-family: dana-reg;
+    src: url("./assets/fonts/dana/DanaFaNum-Regular.woff2") format("woff2");
 }
+@font-face {
+    font-family: dana-base;
+    src: url("./assets/fonts/dana/DanaFaNum-Medium.woff2") format("woff2");
+}
+@font-face {
+    font-family: dana-bold;
+    src: url("./assets/fonts/dana/DanaFaNum-DemiBold.woff2") format("woff2");
+}
+
+
+@font-face {
+    font-family: kalameh-reg;
+    src: url("./assets/fonts/kalameh/Kalameh-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: kalameh-base;
+    src: url("./assets/fonts/kalameh/Kalameh-Medium.ttf") format("truetype");
+}
+@font-face {
+    font-family: kalameh-bold;
+    src: url("./assets/fonts/kalameh/Kalameh-Bold.ttf") format("truetype");
+}
+@font-face {
+    font-family: kalameh-extra;
+    src: url("./assets/fonts/kalameh/Kalameh-ExtraBold.ttf") format("truetype");
+}
+
