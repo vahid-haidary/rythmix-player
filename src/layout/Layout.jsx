@@ -6,17 +6,21 @@ import { Outlet } from 'react-router-dom'
 function Layout() {
   return (
     <>
-    <header className='min-h-screen' >
+      <div className="max-w-base mx-auto flex flex-col bg-background text-white min-h-screen">
+
+    <header >
       <Navbar/>
     </header>
 
-    <main>
+    <main className='flex-grow'>
       <Outlet/>
     </main>
 
     <footer>
      <Footer/>
     </footer>
+
+      </div>
     </>
   )
 }

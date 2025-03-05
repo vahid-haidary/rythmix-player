@@ -1,8 +1,13 @@
 import React from 'react'
+import SwiperBaner from '../components/SwiperBaner'
 
 function Home() {
   return (
-    <div>Home</div>
+    <>
+    <div className='mt-6'>
+      <SwiperBaner/>
+    </div>
+    </>
   )
 }
 

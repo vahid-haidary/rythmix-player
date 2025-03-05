@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <div className="w-bas mx-auto bg-background text-white">
+    <div>
       <Routes>
         <Route path="/" element={<Layout/>} >
         <Route path="home" element={<Home/>} />
