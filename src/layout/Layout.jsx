@@ -6,7 +6,7 @@ import { Outlet } from 'react-router-dom'
 function Layout() {
   return (
     <>
-      <div className="max-w-base mx-auto flex flex-col bg-background text-white min-h-screen">
+      <div className="flex flex-col bg-background text-white min-h-screen">
 
     <header >
       <Navbar/>
