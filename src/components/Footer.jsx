@@ -1,41 +1,43 @@
 import React from 'react'
 import {House ,Download,Search,User,ListMusic} from "lucide-react"
+import { Link, useLocation } from 'react-router-dom'
 
 function Footer() {
+  const location = useLocation()
   return (
     <div 
     className='h-16 w-full bg-background-secondary flex justify-around font-dana-reg text-text-primary
     *:flex *:flex-col *:justify-center *:items-center *:text-center *:gap-1 *:cursor-pointer *:focus:text-primary'>
       
       {/* Download-Btn */}
-      <button className=''>
+      <Link to="downloads" className=''>
         <Download size={28} strokeWidth={3} />
         <span className='text-tiny'>دانلودها</span>
-      </button>
+      </Link>
 
       {/* Search-btn */}
-      <button className=''>
+      <Link to="search" className=''>
         <Search size={28} strokeWidth={2.25} />
         <span className='text-tiny'>جست و جو</span>
-      </button>
+      </Link>
 
       {/* House-btn */}
-      <button className=''>
+      <Link to="home" className={`${location.pathname === "/home" || location.pathname == "/" ? "text-primary" : "text-text-primary"}`}>
         <House size={28} strokeWidth={3} />
         <span className='text-tiny'>خانه</span>
-      </button>
+      </Link>
 
       {/* PlayList-btn */}
-      <button className=''>
+      <Link to="playlist" className=''>
         <ListMusic size={28} strokeWidth={2.25} />
         <span className='text-tiny'>پلی‌لیست‌ها</span>
-      </button>
+      </Link>
 
       {/* User-btn */}
-      <button className=''>
+      <Link to="" className=''>
         <User size={28} strokeWidth={2.25} />
         <span className='text-tiny'>ریتمیکس‌من</span>
-      </button>
+      </Link>
 
     </div>
   )
