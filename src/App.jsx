@@ -4,6 +4,7 @@ import Layout from "./layout/Layout"
 import Search from './pages/Search'
 import PlayerControls from "./components/PlayerControls"
 import Playlist from "./pages/Playlist"
+import Downloads from "./pages/Downloads"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <Route path="/" element={<Layout/>} >
         <Route path="home" element={<Home/>} />
         <Route path="/playlist" element={<Playlist/>}  />
+        <Route path="/downloads" element={<Downloads/>}  />
         <Route path="/search" element={<Search/>}  />
         <Route index element={<Navigate to="/home"/>} />
         </Route>
