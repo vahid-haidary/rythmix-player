@@ -8,10 +8,10 @@ function PlaylistCard() {
 
   return (
     <>
-    <div className='flex flex-col gap-2 mt-4 pr-3'>
+    <div className='flex flex-col gap-2 mt-4'>
 
         <div className='flex justify-between items-center px-2.5'>
-          <span className='font-kalameh-extra text-[26px]'>پلی لیست ها</span>
+          <span className='font-kalameh-extra text-[26px] pr-2'>پلی لیست ها</span>
           <button className='flex items-center text-xs font-kalameh-base'>
             <span>دیدن همه</span>
             <ChevronLeft />
