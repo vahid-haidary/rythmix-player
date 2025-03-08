@@ -1,8 +1,67 @@
 import React from 'react'
+import {ChevronLeft} from 'lucide-react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
+import playlistData from '../data/playlistCardData'
 
 function PlaylistCard() {
+
   return (
-    <div>PlaylistCard</div>
+    <>
+    <div className='flex flex-col gap-2 mt-4 pr-3'>
+
+        <div className='flex justify-between items-center'>
+          <span className='font-kalameh-extra text-[26px]'>پلی لیست ها</span>
+          <button className='flex items-center text-xs font-kalameh-base'>
+            <span>دیدن همه</span>
+            <ChevronLeft />
+          </button>
+        </div>
+
+    <div>
+        <div className='bg-background-secondary flex pr-24 mt-3 rounded-md relative'>
+        <div className='flex items-center gap-1 absolute top-[50px] right-[25px]'>
+            <span><img className='w-8 h-4' src="/src/assets/icons/iran.png" alt="iran" /></span>
+            <span><ChevronLeft/></span>
+          </div>
+          <Swiper 
+          modules={[Navigation]}
+          spaceBetween={8}
+          slidesPerView={4}
+          className='*:py-4 *:shadow'
+          >
+            {playlistData.slice(0,9).map((item,index) => (
+                  <SwiperSlide key={index}>
+                  <img className='rounded-lg' src={item.image} alt={item.title} />
+                </SwiperSlide>
+            ))}
+          </Swiper>
+    
+        </div>
+      </div>
+    <div>
+        <div className='bg-background-secondary flex pr-24 mb-4 rounded-md relative'>
+        <div className='flex items-center gap-1 absolute top-[50px] right-[25px]'>
+            <span><img className='w-6 h-6' src="/src/assets/icons/world.png" alt="world" /></span>
+            <span><ChevronLeft/></span>
+          </div>
+          <Swiper 
+          modules={[Navigation]}
+          spaceBetween={8}
+          slidesPerView={4}
+          className='*:py-4 *:shadow'
+          >
+            {playlistData.slice(9,17).map((item,index) => (
+                  <SwiperSlide key={index}>
+                  <img className='rounded-lg' src={item.image} alt={item.title} />
+                </SwiperSlide>
+            ))}
+          </Swiper>
+    
+        </div>
+      </div>
+    </div>
+    </>
   )
 }
 
