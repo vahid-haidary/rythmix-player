@@ -4,6 +4,7 @@ import PlaylistCard from '../components/PlaylistCard'
 import InsightCard1403 from '../components/InsightCard1403'
 import MusicTemplate from '../components/MusicTemplate'
 import {ChevronLeft} from "lucide-react"
+import PlaylistBanner from '../components/PlaylistBanner'
 
 function Home() {
   
@@ -11,12 +12,19 @@ function Home() {
 
   return (
     <>
+    {/* Header Banner */}
     <div className='mt-6'>
       <SwiperBaner/>
     </div>
-    <div>
+
+    
+      {/* Playlist-music */}
       <PlaylistCard/>
+
+      {/* insight user banner */}
       <InsightCard1403/>
+
+      {/* Newset template */}
       <div className='flex flex-col'>
         <h2 className='font-kalameh-extra text-title tracking-wide pr-4'>
           جدیدترین ها 
@@ -27,8 +35,9 @@ function Home() {
       <MusicTemplate titr="ایران" icon="iran" reverse={false} showHeader={true} showSubHeader={true}/>
       <MusicTemplate titr="جهان" icon="world" reverse={true} showHeader={true} showSubHeader={true} />
       </div>
+
       {/* remix */}
-      <div className='w-full flex flex-col gap-3 pb-8 bg-background-secondary py-3 mt-3 '>
+      <div className='w-full flex flex-col gap-2 pb-8 bg-background-secondary py-4 mt-3 '>
         <div className='flex justify-between '>
         <h2 className='font-kalameh-extra text-title pr-3 '>
         میکس ها 
@@ -46,7 +55,10 @@ function Home() {
       <img className='px-4 rounded-2xl' src="/src/assets/banner/DJBanner.png" />
       </button>
       </div>
-    </div>
+
+      {/* banner playlist carousel */}
+      <PlaylistBanner/>
+    
     </> 
   )
 }

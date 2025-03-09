@@ -9,6 +9,7 @@ function SwiperBaner() {
     <>
       <Swiper 
        modules={[Autoplay]}
+       spaceBetween={10}
         autoplay={{delay: 3000, disableOnInteraction:false ,pauseOnMouseEnter:true, pauseOnMouseLeave:true}}
          loop={true} >
         <SwiperSlide><img className='rounded-3xl w-[90%] mx-auto' src="/src/assets/banner/banner1.png" alt="Banner1" /></SwiperSlide>
