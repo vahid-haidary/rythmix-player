@@ -5,6 +5,7 @@ import InsightCard1403 from '../components/InsightCard1403'
 import MusicTemplate from '../components/MusicTemplate'
 import {ChevronLeft} from "lucide-react"
 import PlaylistBanner from '../components/PlaylistBanner'
+import SingerList from '../components/SingerList'
 
 function Home() {
   
@@ -59,6 +60,19 @@ function Home() {
       {/* banner playlist carousel */}
       <PlaylistBanner/>
     
+      {/* artists banner */}
+      <div className='flex flex-col mt-2 pb-8 bg-background-secondary'>
+        <h2 className='font-kalameh-extra text-title pr-4 pt-2'>
+          خوانندگان 
+          <span className='font-kalameh-base text-sm text-text-primary mr-2'>
+            (محبوب ترین ها)
+            </span>
+        </h2>
+          <div className='flex flex-col gap-5'>
+          <SingerList icon="iran" titr="ایران" showHeader={true} reverse={false}/>
+          <SingerList icon="world" titr="جهان" showHeader={true} reverse={true}/>
+          </div>
+      </div>
     </> 
   )
 }
