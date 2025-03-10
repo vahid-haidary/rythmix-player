@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import axios from 'axios'
 
-function MusicTemplate({titr,icon,reverse,showHeader}) {
+function  MusicTemplate({titr,icon,reverse,showHeader}) {
 
     const API_URL = import.meta.env.VITE_API_URL
     const [data, setData] = useState([])
