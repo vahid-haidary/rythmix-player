@@ -1,8 +1,72 @@
-import React from 'react'
-import {Share2,Shuffle,Repeat,EllipsisVertical,Timer,Heart,Download} from "lucide-react"
+import React, { useEffect, useRef, useState } from 'react'
+import {Share2,Shuffle,Repeat,EllipsisVertical,Timer,Heart,Download, Leaf} from "lucide-react"
 import { motion } from 'framer-motion'
+import { useSelector } from 'react-redux'
+import { formatTime } from '../utils/formatTime'
 
 function PlayerControls() {
+
+  const currentSong = useSelector((state) => state.songs.currentSong)
+  const audioRef = useRef(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [currentTime, setCurrentTime] = useState(0)
+  const [duration, setDuration] = useState(0)
+
+  useEffect(() => {
+    if (currentSong && audioRef.current) {
+      const audio = audioRef.current;
+
+      setCurrentTime(0)
+      audio.currentTime = 0;
+
+      const progressBar = document.querySelector('.progress-bar');
+      if (progressBar) {
+        progressBar.style.width = '0%';
+      }
+  
+      const playAudio = async () => {
+        try {
+          if (audio.paused) {
+            await audio.play();
+            setIsPlaying(true);
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      };
+  
+      const onLoadedData = () => setDuration(audio.duration);
+      const onTimeUpdate = () => setCurrentTime(audio.currentTime);
+  
+      audio.addEventListener("loadeddata", onLoadedData);
+      audio.addEventListener("timeupdate", onTimeUpdate);
+  
+      playAudio();
+  
+      return () => {
+        audio.removeEventListener("loadeddata", onLoadedData);
+        audio.removeEventListener("timeupdate", onTimeUpdate);
+      };
+    }
+  }, [currentSong]);
+  
+
+
+  const tooglePlayPause = () => {
+    setIsPlaying((prev) => {
+      if(prev){
+        audioRef.current.pause()
+      }else{
+        audioRef.current.play()
+      }
+      return !prev
+    })
+  }
+
+
+  if (!currentSong) {
+    return <h3 className="text-center mt-10 text-white">هیچ آهنگی انتخاب نشده است</h3>
+  }
   return (
     <>
     <section className='w-full px-3 mx-auto bg-background-secondary h-screen'>
@@ -17,7 +81,7 @@ function PlayerControls() {
         </button>
 
           <div className='max-w-full min-h-[33.5vh] w-[34.25vh] shadow-lg shadow-gray-900 my-1.5 rounded-2xl'>
-            <img className='rounded-2xl' src="https://rythmix-files.storage.c2.liara.space/cover_list/Novan.jpg" alt="" />
+            <img className='rounded-2xl' src={currentSong.cover_url} alt={currentSong.title} />
           </div>
       </div>
 
@@ -25,12 +89,12 @@ function PlayerControls() {
         <div className='flex flex-col self-start mt-[7.5vh] font-dana-base'>
             <div className='flex items-center gap-3'>
             <span className='block w-2 h-2 rounded-full bg-white' ></span>
-            <span className='text-lg'>شیدا</span>
+            <span className='text-lg'>{currentSong.title}</span>
             </div>
 
             <div className='flex items-center gap-3'>
             <span className='block w-2 h-2 rounded-full bg-primary' ></span>
-            <span className='text-primary text-tiny'>علیرضا قربانی</span>
+            <span className='text-primary text-tiny'>{currentSong.artist}</span>
             </div>
         </div>
 
@@ -49,27 +113,41 @@ function PlayerControls() {
           <div>
 
               {/* Timeline & Timer container */}
-            <div className='flex flex-col gap-3 font-dana-bold relative '>
-              <div className='w-full h-0.5 bg-text-primary rounded-full relative'>
-                <span className='bg-primary h-3 w-3 block rounded-full absolute left-0 -top-1.5' ></span>
+              <div className='flex flex-col gap-3 font-dana-bold relative '>
+                <div className='w-full h-0.5 bg-text-primary rounded-full relative'>
+                  <span className='progress-bar bg-primary h-1 w-3 block rounded-full absolute left-0 top-0' style={{width:`${(currentTime / duration) * 100}%`}} ></span>
+                  {/* Circle */}
+                  <span className='bg-primary rounded-full h-4 w-4 absolute top-1/2 -translate-y-1/2 shadow shadow-gray-700'
+                  style={{ left: `calc(${(currentTime / duration) * 100}% - 6px)` }}
+                  >
+                  </span>
+                  </div>
+                <div className='flex justify-between'>
+                  <span>{formatTime(duration)}</span>
+                  <span>{formatTime(currentTime)}</span>
                 </div>
-              <div className='flex justify-between'>
-                <span>4.32</span>
-                <span>00.10</span>
               </div>
-            </div>
 
             {/* controler Buttons */}
             <div className='flex justify-between items-center mt-5'>
              <Shuffle size={20} color="#ffffff" strokeWidth={1.75} />
               <img className='h-7 w-7' src="/src/assets/icons/next.svg" alt="" />
-              <img className='w-[70px] h-[70px]'  src="/src/assets/icons/play.svg" alt="" />
-              {/* <span><img className='w-[70px] h-[70px]' src="/src/assets/icons/pause.svg" alt="" /></span> */}
+              <audio ref={audioRef} src={currentSong.audio_url} className='w-full'></audio>
+
+              <button onClick={tooglePlayPause} >
+                {
+                  isPlaying ? 
+                  <img className='w-[70px] h-[70px]' src="/src/assets/icons/pause.svg" alt="pause" />
+                  :(
+                    (<img className='w-[70px] h-[70px]'  src="/src/assets/icons/play.svg" alt="play" />)
+                  )
+                }
+              </button>
+
               <img className='h-7 w-7' src="/src/assets/icons/previous.svg" alt="" />
              <Repeat size={20} color="#ffffff" strokeWidth={1.75} />
             </div>
           </div>
-
         </div>
         </div>
 
@@ -103,3 +181,5 @@ function PlayerControls() {
 }
 
 export default PlayerControls
+
+

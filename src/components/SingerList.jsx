@@ -9,13 +9,18 @@ import artistPic from '../data/artistsPictures'
 function SingerList({ icon, titr ,showHeader, reverse}) {
 
     const [loading, setLoading] = useState(true)
+    
 
     useEffect(() => {
-      const timer = setTimeout(() => {
+      const timeout = setTimeout(() => {
         setLoading(false)
-      }, 1000);
-      return () => clearTimeout(timer)
+      }, 3000);
+      
+      return () => clearTimeout(timeout)
     },[])
+
+
+
 
     return (
         <div className='w-full mt-4'>
@@ -51,7 +56,7 @@ function SingerList({ icon, titr ,showHeader, reverse}) {
                     :
                         (reverse ? [...artistPic].reverse() : artistPic).map((item) => (
                             <SwiperSlide className='flex flex-col items-center cursor-pointer' key={item.id}>
-                                <img className='mb-2 w-24 h-24 rounded-full object-cover border-2 border-text-primary' src={item.src} alt={item.title} />
+                                <img className='mb-2 w-24 h-24 rounded-full object-cover border-2 border-text-primary' src={item.src} alt={item.title}  />
                                 <span className='font-dana-base text-tiny text-text-secondary text-center overflow-hidden w-24'>{item.title}</span>
                             </SwiperSlide>
                         ))

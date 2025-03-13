@@ -1,8 +1,11 @@
 import { ChevronLeft } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { setCurrentSong } from '../store/slices/songSlice'
 
 function  MusicTemplate({titr,icon,reverse,showHeader}) {
 
@@ -10,6 +13,8 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
     const [data, setData] = useState([])
     const [loading,setLoading] = useState(true)
     const [error, setError] = useState(null)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     useEffect(() => {
       axios.get(`${API_URL}/Songs`)
@@ -23,7 +28,10 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
       })
     },[])
 
-    console.log(data);
+    const handleSongClick = useCallback((song) => {
+      dispatch(setCurrentSong(song))
+      navigate('/player')
+    },[dispatch,navigate])
 
     if(error) return <h3>خطایی رخ داده است  </h3>
 
@@ -58,7 +66,7 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
                         </SwiperSlide>
             )):
               (reverse ? [...data].reverse() : data).map((item) => (
-                        <SwiperSlide className='flex flex-col' key={item.id}>
+                        <SwiperSlide className='flex flex-col' key={item.id} onClick={() => handleSongClick(item)}>
                             <img className='mb-2' src={item.cover_url} alt={item.id} />
                             <div className='flex flex-col items-center justify-center max-w-[100px] '>
                                 <span className='font-dana-base text-tiny text-text-secondary overflow-hidden text-center'>{item.title}</span>

@@ -126,6 +126,7 @@ function Home() {
           {loading ? <Shimmer className="w-full mx-auto h-[190px] rounded-2xl" /> : <img className='rounded-2xl' src={DownloadBanner} alt="DownloadBanner" />}
         </div>
       </div>
+    
     </> 
   );
 }
