@@ -6,6 +6,7 @@ import PlayerControls from "./components/PlayerControls"
 import Playlist from "./pages/Playlist"
 import Downloads from "./pages/Downloads"
 import { LoadingProvider } from "./context/LoadingContext"
+import MyRythmix from "./pages/MyRythmix"
 
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
         <Route path="/playlist" element={<Playlist/>}  />
         <Route path="/downloads" element={<Downloads/>}  />
         <Route path="/search" element={<Search/>}  />
+        <Route path="/myrythmix" element={<MyRythmix/>}  />
         <Route index element={<Navigate to="/home"/>} />
         </Route>
         <Route path="/player" element={<PlayerControls/>}/>

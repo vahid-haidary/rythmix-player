@@ -34,7 +34,7 @@ function Footer() {
       </Link>
 
       {/* User-btn */}
-      <Link to="" className=''>
+      <Link to="myrythmix" className=''>
         <User size={28} strokeWidth={2.25} />
         <span className='text-tiny'>ریتمیکس‌من</span>
       </Link>
