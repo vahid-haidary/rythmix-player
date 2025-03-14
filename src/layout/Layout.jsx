@@ -12,7 +12,7 @@ function Layout() {
       <Navbar/>
     </header>
 
-    <main className='flex-grow '>
+    <main className='flex-grow mb-16 mt-14 '>
       <Outlet/>
     </main>
 

@@ -6,7 +6,7 @@ function Footer() {
   const location = useLocation()
   return (
     <div 
-    className='h-16 w-full bg-background-secondary flex justify-around font-dana-reg text-text-primary
+    className='h-16 w-full max-w-base fixed bottom-0 left-0 right-0 mx-auto z-20 bg-background-secondary flex justify-around font-dana-reg text-text-primary
     *:flex *:flex-col *:justify-center *:items-center *:text-center *:gap-1 *:cursor-pointer *:focus:text-primary'>
       
       {/* Download-Btn */}
