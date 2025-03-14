@@ -51,7 +51,7 @@ function PlayerControls() {
   }, [currentSong]);
   
 
-
+  // Toogle Button Play And Pause
   const tooglePlayPause = () => {
     setIsPlaying((prev) => {
       if(prev){
@@ -63,10 +63,24 @@ function PlayerControls() {
     })
   }
 
+  // TimeLine Handle Click
+  const trimHandle = (e) => {
+    const progressBar = e.currentTarget;
+    const offsetX = e.clientX - progressBar.getBoundingClientRect().left;
+    const progressWidth = progressBar.clientWidth;
+    const clickPercentage = (offsetX / progressWidth);
+    const newTime = clickPercentage * duration;
+    setCurrentTime(newTime)
+    audioRef.current.currentTime= newTime
 
+  }
+
+    
+  // SetError
   if (!currentSong) {
     return <h3 className="text-center mt-10 text-white">هیچ آهنگی انتخاب نشده است</h3>
   }
+
   return (
     <>
     <section className='w-full px-3 mx-auto bg-background-secondary h-screen'>
@@ -113,14 +127,16 @@ function PlayerControls() {
           <div>
 
               {/* Timeline & Timer container */}
-              <div className='flex flex-col gap-3 font-dana-bold relative '>
-                <div className='w-full h-0.5 bg-text-primary rounded-full relative'>
+              <div className='flex flex-col gap-3 py-2 font-dana-bold relative '>
+                  <div className='w-full h-2 relative cursor-pointer' onClick={e => trimHandle(e)}>
+                  <div className='w-full h-0.5 bg-text-primary rounded-full relative '>
                   <span className='progress-bar bg-primary h-1 w-3 block rounded-full absolute left-0 top-0' style={{width:`${(currentTime / duration) * 100}%`}} ></span>
                   {/* Circle */}
                   <span className='bg-primary rounded-full h-4 w-4 absolute top-1/2 -translate-y-1/2 shadow shadow-gray-700'
                   style={{ left: `calc(${(currentTime / duration) * 100}% - 6px)` }}
                   >
                   </span>
+                  </div>
                   </div>
                 <div className='flex justify-between'>
                   <span>{formatTime(duration)}</span>
