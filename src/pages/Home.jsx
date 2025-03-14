@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import {
   SwiperBaner,
   PlaylistCard,
@@ -11,17 +10,11 @@ import {
 } from '../components';
 import {ChevronLeft} from "lucide-react"
 import DownloadBanner from '/src/assets/banner/DownloadBanner.png'
+import { useLoading } from '../context/LoadingContext';
 
 function Home() {
   
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    const time = setTimeout(() => {
-      setLoading(false)
-    },3000)
-    return () => clearTimeout(time)
-  },[])
+  const loading = useLoading()
 
   return (  
     <>

@@ -1,4 +1,4 @@
-import { ChevronLeft } from 'lucide-react'
+import { ChevronLeft, Earth } from 'lucide-react'
 import React, { useCallback, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
@@ -33,7 +33,10 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
       navigate('/player')
     },[dispatch,navigate])
 
-    if(error) return <h3>خطایی رخ داده است  </h3>
+    // error handle
+    if(error === "Network Error"){ return <div className='flex justify-center gap-2'><Earth size={30}  color='red ' />خطا در شبکه</div>}else{
+      (<h3 className='text-center text-2xl font-bold'>خطایی رخ داده است</h3>)
+    }
 
   return (
     <div className='w-full mt-4 '>
