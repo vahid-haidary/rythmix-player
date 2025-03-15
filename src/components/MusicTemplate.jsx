@@ -3,14 +3,15 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import axios from 'axios'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { setCurrentSong } from '../store/slices/songSlice'
+import { setCurrentSong,setSongs } from '../store/slices/songSlice'
 
 function  MusicTemplate({titr,icon,reverse,showHeader}) {
+  const songs = useSelector(state => state.songs.data);
+
 
     const API_URL = import.meta.env.VITE_API_URL
-    const [data, setData] = useState([])
     const [loading,setLoading] = useState(true)
     const [error, setError] = useState(null)
     const dispatch = useDispatch()
@@ -18,15 +19,18 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
 
     useEffect(() => {
       axios.get(`${API_URL}/Songs`)
-      .then ((response) => {
-        setData(response.data)
-        setLoading(false)
-      })
-      .catch((error) => {
-        setError(error.message)
-        setLoading(false)
-      })
-    },[])
+        .then((response) => {
+          console.log("Fetched songs:", response.data); // برای بررسی داده دریافتی
+          dispatch(setSongs(response.data));
+          setLoading(false);
+        })
+        .catch((error) => {
+          console.error("Error fetching songs:", error);
+          setError(error.message);
+          setLoading(false);
+        });
+    }, [API_URL, dispatch]);
+    
 
     const handleSongClick = useCallback((song) => {
       dispatch(setCurrentSong(song))
@@ -68,7 +72,7 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
                         <div className="h-2 w-16 bg-gray-500 rounded mt-1"></div>
                         </SwiperSlide>
             )):
-              (reverse ? [...data].reverse() : data).map((item) => (
+              (reverse ? [...songs].reverse() : songs).map((item) => (
                         <SwiperSlide className='flex flex-col' key={item.id} onClick={() => handleSongClick(item)}>
                             <img className='mb-2' src={item.cover_url} alt={item.id} />
                             <div className='flex flex-col items-center justify-center max-w-[100px] '>

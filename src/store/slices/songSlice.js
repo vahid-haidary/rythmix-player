@@ -1,44 +1,42 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
+import { createSlice } from '@reduxjs/toolkit';
 
-const API_URL = import.meta.env.VITE_API_URL;
+const initialState = {
+  data: [],           
+  currentSong: null,   
+  currentIndex: 0,     
+};
 
-export const fetchSongs = createAsyncThunk("songs/fetchSongs", async () => {
-  const response = await axios.get(`${API_URL}/Songs`);
-  return response.data;
-});
-
-const initialState= {
-    data: [],
-    loading: false,
-    error: null,
-    currentSong: null
-  }
-
-const songsSlice = createSlice({
-  name: "songs",
-  initialState,   
+const songSlice = createSlice({
+  name: 'songs',
+  initialState,
   reducers: {
-    setCurrentSong: (state,action) => {
-      state.currentSong = action.payload
-    }
-  }, 
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchSongs.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchSongs.fulfilled, (state, action) => {
-        state.data = action.payload;
-        state.loading = false;
-      })
-      .addCase(fetchSongs.rejected, (state, action) => {
-        state.error = action.error.message;
-        state.loading = false;
-      });
+    setCurrentSong: (state, action) => {
+      state.currentSong = action.payload;
+    },
+    setSongs: (state, action) => {
+      state.data = action.payload;
+      if (action.payload.length > 0) {
+        state.currentSong = action.payload[0]; // تنظیم اولین آهنگ به عنوان آهنگ فعلی
+        state.currentIndex = 0;                // ایندکس از 0 شروع می‌شود
+      }
+    },
+    setNextsong: (state) => {
+      if (state.data.length === 0) {
+        console.log("No songs available to play.");
+        return;
+      }
+      const nextIndex = (state.currentIndex + 1) % state.data.length;
+      state.currentSong = state.data[nextIndex];
+      state.currentIndex = nextIndex;
+    },
+    setPreviousSong: (state) => {
+      if (state.data.length === 0) return;
+      const prevIndex = (state.currentIndex - 1 + state.data.length) % state.data.length;
+      state.currentSong = state.data[prevIndex];
+      state.currentIndex = prevIndex;
+    },
   },
 });
 
-export const {setCurrentSong} = songsSlice.actions;
-export default songsSlice.reducer;
+export const { setSongs, setNextsong, setPreviousSong, setCurrentSong } = songSlice.actions;
+export default songSlice.reducer;

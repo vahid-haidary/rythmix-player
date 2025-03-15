@@ -1,19 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {Share2,Shuffle,Repeat,EllipsisVertical,Timer,Heart,Download, Leaf} from "lucide-react"
 import { motion } from 'framer-motion'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { formatTime } from '../utils/formatTime'
+import { useNavigate } from 'react-router-dom'
+import { setNextsong, setPreviousSong} from '../store/slices/songSlice'
+
 
 function PlayerControls() {
 
-  const currentSong = useSelector((state) => state.songs.currentSong)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { currentSong } = useSelector(state => state.songs);
+
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [currentTime, setCurrentTime] = useState(0)
   const [duration, setDuration] = useState(0)
+  const [isRepeating, setIsRepeating] = useState(false)
 
+
+  
   useEffect(() => {
+    console.log("Current Song in Redux: ", currentSong);
     if (currentSong && audioRef.current) {
+      console.log("Current Song Updated: ", currentSong);
       const audio = audioRef.current;
 
       setCurrentTime(0)
@@ -47,8 +59,11 @@ function PlayerControls() {
         audio.removeEventListener("loadeddata", onLoadedData);
         audio.removeEventListener("timeupdate", onTimeUpdate);
       };
+
+    }else{
+      navigate("/")
     }
-  }, [currentSong]);
+  }, [currentSong,navigate]);
   
 
   // Toogle Button Play And Pause
@@ -75,11 +90,38 @@ function PlayerControls() {
 
   }
 
+  //Next song Btn
+  const handleNext = () => {
+    
+    dispatch(setNextsong());
+ 
+  };
+
+  //previous song Btn
+  const handlePrevious = () => {
+    dispatch(setPreviousSong());
+
+  };
+
+  // Repeating btn
+  const toggleRepeat = () => {
+    setIsRepeating((prev) => (!prev))
+  }
+
+  const handleEnded = () => {
+    if(isRepeating){
+      audioRef.current.currentTime = 0
+      audioRef.current.play()
+    }
+  }
+
     
   // SetError
   if (!currentSong) {
     return <h3 className="text-center mt-10 text-white">هیچ آهنگی انتخاب نشده است</h3>
   }
+
+  
 
   return (
     <>
@@ -145,23 +187,27 @@ function PlayerControls() {
               </div>
 
             {/* controler Buttons */}
-            <div className='flex justify-between items-center mt-5'>
+            <div className='flex justify-between items-center '>
              <Shuffle size={20} color="#ffffff" strokeWidth={1.75} />
-              <img className='h-7 w-7' src="/src/assets/icons/next.svg" alt="" />
-              <audio ref={audioRef} src={currentSong.audio_url} className='w-full'></audio>
+
+              <img className='h-8 w-8 cursor-pointer' src="/src/assets/icons/next.svg" onClick={handleNext} alt="next" />
+
+              <audio ref={audioRef} src={currentSong.audio_url} onEnded={handleEnded} className='w-full'></audio>
 
               <button onClick={tooglePlayPause} >
                 {
                   isPlaying ? 
-                  <img className='w-[70px] h-[70px]' src="/src/assets/icons/pause.svg" alt="pause" />
+                  <img className='w-[80px] h-[80px]' src="/src/assets/icons/pause.svg" alt="pause" />
                   :(
-                    (<img className='w-[70px] h-[70px]'  src="/src/assets/icons/play.svg" alt="play" />)
+                    (<img className='w-[80px] h-[80px]'  src="/src/assets/icons/play.svg" alt="play" />)
                   )
                 }
               </button>
 
-              <img className='h-7 w-7' src="/src/assets/icons/previous.svg" alt="" />
-             <Repeat size={20} color="#ffffff" strokeWidth={1.75} />
+              <img className='h-8 w-8 cursor-pointer' src="/src/assets/icons/previous.svg" onClick={handlePrevious}  alt="previous" />
+
+             <Repeat size={20} className={`${isRepeating ? "text-primary" : "text-white"} cursor-pointer`} strokeWidth={1.75} onClick={toggleRepeat} />
+
             </div>
           </div>
         </div>
@@ -192,7 +238,7 @@ function PlayerControls() {
       </div>
 
     </section>
-    </>
+    </> 
   )
 }
 
