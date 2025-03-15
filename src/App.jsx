@@ -7,6 +7,7 @@ import Playlist from "./pages/Playlist"
 import Downloads from "./pages/Downloads"
 import { LoadingProvider } from "./context/LoadingContext"
 import MyRythmix from "./pages/MyRythmix"
+import { AnimatePresence, motion } from "framer-motion"
 
 
 function App() {
@@ -24,7 +25,26 @@ function App() {
         <Route path="/myrythmix" element={<MyRythmix/>}  />
         <Route index element={<Navigate to="/home"/>} />
         </Route>
-        <Route path="/player" element={<PlayerControls/>}/>
+
+        <Route path="/player" element={
+          <motion.div
+          initial={{ y: '100%' }}  
+          animate={{ y: 0 }} 
+          exit={{ y: '100%' }}  
+          transition={{
+            type: 'spring',
+            stiffness: 300,
+            damping: 40,
+            duration: 4,
+            ease: 'easeOut',
+          }}
+          >
+          <PlayerControls/>
+          </motion.div>
+        } 
+        
+        />
+
       </Routes>
     </div>
     </LoadingProvider>
