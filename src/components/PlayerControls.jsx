@@ -12,7 +12,11 @@ function PlayerControls() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { currentSong } = useSelector(state => state.songs);
+  const { currentSong, songs = [] } = useSelector(state => ({
+    currentSong: state.songs.currentSong,
+    songs: state.songs.data || [],
+  }));
+    const isLastSong = currentSong && songs.length > 0 && songs.indexOf(currentSong) === songs.length - 1;
 
   const audioRef = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false)
@@ -23,9 +27,7 @@ function PlayerControls() {
 
   
   useEffect(() => {
-    console.log("Current Song in Redux: ", currentSong);
     if (currentSong && audioRef.current) {
-      console.log("Current Song Updated: ", currentSong);
       const audio = audioRef.current;
 
       setCurrentTime(0)
@@ -92,8 +94,10 @@ function PlayerControls() {
 
   //Next song Btn
   const handleNext = () => {
-    
+    console.log(songs.length);
+    if(!isLastSong){
     dispatch(setNextsong());
+    }
  
   };
 
@@ -112,6 +116,8 @@ function PlayerControls() {
     if(isRepeating){
       audioRef.current.currentTime = 0
       audioRef.current.play()
+    }else{
+      dispatch(setNextsong())
     }
   }
 
@@ -190,7 +196,7 @@ function PlayerControls() {
             <div className='flex justify-between items-center '>
              <Shuffle size={20} color="#ffffff" strokeWidth={1.75} />
 
-              <img className='h-8 w-8 cursor-pointer' src="/src/assets/icons/next.svg" onClick={handleNext} alt="next" />
+              <img className={`h-8 w-8 cursor-pointer ${isLastSong ? "opacity-20 cursor-not-allowed" : ""}`} src="/src/assets/icons/next.svg" onClick={handleNext} alt="next" />
 
               <audio ref={audioRef} src={currentSong.audio_url} onEnded={handleEnded} className='w-full'></audio>
 

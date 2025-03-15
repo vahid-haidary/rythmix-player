@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  data: [],           
+  songs: [],           
   currentSong: null,   
   currentIndex: 0,     
 };
@@ -22,7 +22,6 @@ const songSlice = createSlice({
     },
     setNextsong: (state) => {
       if (state.data.length === 0) {
-        console.log("No songs available to play.");
         return;
       }
       const nextIndex = (state.currentIndex + 1) % state.data.length;
