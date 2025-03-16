@@ -146,7 +146,7 @@ function PlayerControls() {
     }
   }
 
-//shuffeleing 
+//shuffeleing
   const shuffelingHandle = () => {
     setIsShuffle(prev => {
       if (!prev) {
@@ -177,7 +177,7 @@ function PlayerControls() {
 
         {/* image & curve container */}
       <div className='flex flex-col items-center justify-center'>
-        <button className=''>
+        <button onClick={() => {navigate("/")}}>
           <img src="/src/assets/icons/curve.svg" alt="curve.svg" />
         </button>
 

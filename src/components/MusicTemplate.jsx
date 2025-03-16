@@ -20,7 +20,7 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
     useEffect(() => {
       axios.get(`${API_URL}/Songs`)
         .then((response) => {
-          console.log("Fetched songs:", response.data); // برای بررسی داده دریافتی
+          console.log("Fetched songs:", response.data); 
           dispatch(setSongs(response.data));
           setLoading(false);
         })

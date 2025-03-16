@@ -14,7 +14,7 @@ function Layout() {
     </header>
 
     <main className='flex-grow mb-16 mt-14 '>
-      <motion.div
+      <div
                   initial={{ y: '100%' }}  // شروع انیمیشن از پایین
                   animate={{ y: 0 }}  // حرکت به بالا
                   exit={{ y: '100%' }}  // وقتی صفحه بسته می‌شود، انیمیشن برگشت به پایین
@@ -27,7 +27,7 @@ function Layout() {
                   }}
       >
       <Outlet/>
-      </motion.div>
+      </div>
     </main>
 
     <footer>
