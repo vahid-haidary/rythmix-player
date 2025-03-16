@@ -24,6 +24,9 @@ function PlayerControls() {
   const [duration, setDuration] = useState(0)
   const [isRepeating, setIsRepeating] = useState(false)
 
+  const [isShuffle, setIsShuffle] = useState(false)
+  const [shuffledSong, setShuffledSong] = useState([])
+
 
   
   useEffect(() => {
@@ -92,20 +95,42 @@ function PlayerControls() {
 
   }
 
+  
+
   //Next song Btn
   const handleNext = () => {
-    console.log(songs.length);
-    if(!isLastSong){
-    dispatch(setNextsong());
+    if (isShuffle && shuffledSong.length > 0) {
+      const currentIndex = shuffledSong.findIndex(song => song.id === currentSong.id);
+      if (currentIndex < shuffledSong.length - 1) {
+        dispatch(setNextsong(shuffledSong[currentIndex + 1]));
+      } else {
+        dispatch(setNextsong(shuffledSong[0])); 
+      }
+    } else {
+      if (!isLastSong) {
+        dispatch(setNextsong());
+      }
     }
- 
   };
+  
+
+  
 
   //previous song Btn
   const handlePrevious = () => {
-    dispatch(setPreviousSong());
-
+    if (isShuffle && shuffledSong.length > 0) {
+      const currentIndex = shuffledSong.findIndex(song => song.id === currentSong.id);
+      if (currentIndex > 0) {
+        dispatch(setPreviousSong(shuffledSong[currentIndex - 1]));
+      } else {
+        dispatch(setPreviousSong(shuffledSong[shuffledSong.length - 1])); 
+      }
+    } else {
+      dispatch(setPreviousSong());
+    }
   };
+  
+  
 
   // Repeating btn
   const toggleRepeat = () => {
@@ -120,6 +145,20 @@ function PlayerControls() {
       dispatch(setNextsong())
     }
   }
+
+//shuffeleing 
+  const shuffelingHandle = () => {
+    setIsShuffle(prev => {
+      if (!prev) {
+        let shuffled = [...songs].sort(() => Math.random() - 0.5);
+        setShuffledSong(shuffled);
+      } else {
+        setShuffledSong([]); 
+      }
+      return !prev;
+    });
+  };
+  
 
     
   // SetError
@@ -194,7 +233,7 @@ function PlayerControls() {
 
             {/* controler Buttons */}
             <div className='flex justify-between items-center '>
-             <Shuffle size={20} color="#ffffff" strokeWidth={1.75} />
+             <Shuffle size={20}  strokeWidth={1.75} className={`${isShuffle? "text-primary" : "text-white"} cursor-pointer`} onClick={shuffelingHandle}  />
 
               <img className={`h-8 w-8 cursor-pointer ${isLastSong ? "opacity-20 cursor-not-allowed" : ""}`} src="/src/assets/icons/next.svg" onClick={handleNext} alt="next" />
 
