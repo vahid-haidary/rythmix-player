@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react'
 import {Share2,Shuffle,Repeat,EllipsisVertical,Timer,Heart,Download, Leaf} from "lucide-react"
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { useDispatch, useSelector } from 'react-redux'
 import { formatTime } from '../utils/formatTime'
 import { useNavigate } from 'react-router-dom'
 import { setNextsong, setPreviousSong} from '../store/slices/songSlice'
+import TimerBottomSheet from './TimerBottomSheet'
 
 
 function PlayerControls() {
@@ -27,6 +28,7 @@ function PlayerControls() {
   const [isShuffle, setIsShuffle] = useState(false)
   const [shuffledSong, setShuffledSong] = useState([])
 
+  const [showTimer, setShowTimer] = useState(false)
 
   
   useEffect(() => {
@@ -158,6 +160,11 @@ function PlayerControls() {
       return !prev;
     });
   };
+
+  //Timer Bottom Sheet
+  const TimerHandle = () => {
+    setShowTimer((prev) => !prev)
+  }
   
 
     
@@ -170,7 +177,7 @@ function PlayerControls() {
 
   return (
     <>
-    <section className='w-full px-3 mx-auto bg-background-secondary h-screen'>
+    <section className='w-full relative px-3 mx-auto bg-background-secondary h-screen'>
 
       {/* player controls */}
       <div className=' bg-background rounded-b-4xl px-7 h-[90%] '>
@@ -273,10 +280,17 @@ function PlayerControls() {
           <span className='font-kalameh-base'>هم‌زمان</span>
         </div>
 
-          <button className='focus:text-primary'>
+          <button className='focus:text-primary' onClickCapture={TimerHandle}>
           <Timer size={28} />
           </button>
-          
+              <div
+               className='absolute bottom-0 left-0 right-0 '>
+                <AnimatePresence>
+                {showTimer && 
+            <TimerBottomSheet setShowTimer={setShowTimer} />}
+            </AnimatePresence>
+              </div>
+
           <button className='focus:text-primary'>
            <Download size={28}  strokeWidth={1.75} />
           </button>
