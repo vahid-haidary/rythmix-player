@@ -16,8 +16,8 @@ const songSlice = createSlice({
     setSongs: (state, action) => {
       state.data = action.payload;
       if (action.payload.length > 0) {
-        state.currentSong = action.payload[0]; // تنظیم اولین آهنگ به عنوان آهنگ فعلی
-        state.currentIndex = 0;                // ایندکس از 0 شروع می‌شود
+        state.currentSong = action.payload[0]; 
+        state.currentIndex = 0;               
       }
     },
     setNextsong: (state) => {
