@@ -165,6 +165,31 @@ function PlayerControls() {
   const TimerHandle = () => {
     setShowTimer((prev) => !prev)
   }
+
+  //Download Handle
+  const downlodaHandle = () => {
+    if(!currentSong || !currentSong.audio_url) return;
+    
+    const downloadedSongs = JSON.parse(localStorage.getItem("downloadedSongs")) || [];
+
+    const newDownload =  {
+      title: currentSong.title,
+      artist: currentSong.artist,
+      cover: currentSong.cover_url
+    }
+
+    if (!downloadedSongs.some(song => song.title === newDownload.title)) {
+      downloadedSongs.push(newDownload);
+      localStorage.setItem('downloadedSongs', JSON.stringify(downloadedSongs));
+    }
+
+    const link = document.createElement("a")
+    link.href = currentSong.audio_url;
+    link.download = `${currentSong.title}.mp3`
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
   
 
     
@@ -291,7 +316,7 @@ function PlayerControls() {
             </AnimatePresence>
               </div>
 
-          <button className='focus:text-primary'>
+          <button className='active:text-primary cursor-pointer' onClick={downlodaHandle}>
            <Download size={28}  strokeWidth={1.75} />
           </button>
       </div>
