@@ -8,6 +8,8 @@ import Downloads from "./pages/Downloads";
 import { LoadingProvider } from "./context/LoadingContext";
 import MyRythmix from "./pages/MyRythmix";
 import { AnimatePresence, motion } from "framer-motion";
+import PlaylistSongPage from "./pages/PlaylistSongPage";
+import CategoryPage from "./pages/CategoryPage";
 
 function App() {
   const location = useLocation();
@@ -22,6 +24,9 @@ function App() {
             <Route path="/downloads" element={<Downloads />} />
             <Route path="/search" element={<Search />} />
             <Route path="/myrythmix" element={<MyRythmix />} />
+            <Route path="category" element={<CategoryPage/>} />
+            <Route path="category/:categoryId/playlist" element={<PlaylistSongPage/>
+            } />
             <Route index element={<Navigate to="/home" />} />
           </Route>
         </Routes>

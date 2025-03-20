@@ -10,13 +10,13 @@ function Footer() {
     *:flex *:flex-col *:justify-center *:items-center *:text-center *:gap-1 *:cursor-pointer *:focus:text-primary'>
       
       {/* Download-Btn */}
-      <Link to="downloads" className=''>
+      <Link to="downloads" className={`${location.pathname === "/downloads" ? "text-primary":"text-text-primary"}`}>
         <Download size={28} strokeWidth={3} />
         <span className='text-tiny'>دانلودها</span>
       </Link>
 
       {/* Search-btn */}
-      <Link to="search" className=''>
+      <Link to="search" className={`${location.pathname === "/search" ? "text-primary":"text-text-primary"}`}>
         <Search size={28} strokeWidth={2.25} />
         <span className='text-tiny'>جست و جو</span>
       </Link>
@@ -28,13 +28,13 @@ function Footer() {
       </Link>
 
       {/* PlayList-btn */}
-      <Link to="playlist" className=''>
+      <Link to="playlist" className={`${location.pathname === "/playlist" ? "text-primary":"text-text-primary"}`}>
         <ListMusic size={28} strokeWidth={2.25} />
         <span className='text-tiny'>پلی‌لیست‌ها</span>
       </Link>
 
       {/* User-btn */}
-      <Link to="myrythmix" className=''>
+      <Link to="myrythmix" className={`${location.pathname === "/myrythmix" ? "text-primary":"text-text-primary"}`}>
         <User size={28} strokeWidth={2.25} />
         <span className='text-tiny'>ریتمیکس‌من</span>
       </Link>

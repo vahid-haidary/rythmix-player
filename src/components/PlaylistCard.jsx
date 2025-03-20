@@ -3,8 +3,11 @@ import {ChevronLeft} from 'lucide-react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import playlistData from '../data/playlistCardData'
+import { useNavigate } from 'react-router-dom'
 
 function PlaylistCard() {
+
+  const navigate = useNavigate()
 
   return (
     <>
@@ -28,11 +31,11 @@ function PlaylistCard() {
           modules={[Navigation]}
           spaceBetween={8}
           slidesPerView={4}
-          className='*:py-4 *:shadow'
+          className='*:py-4 *:shadow **:cursor-pointer'
           >
             {playlistData.slice(0,9).map((item,index) => (
                   <SwiperSlide key={index}>
-                  <img className='rounded-lg' src={item.image} alt={item.title} />
+                  <img className='rounded-lg' src={item.image} alt={item.title} onClick={()=> navigate("/category")} />
                 </SwiperSlide>
             ))}
           </Swiper>
@@ -49,11 +52,11 @@ function PlaylistCard() {
           modules={[Navigation]}
           spaceBetween={8}
           slidesPerView={4}
-          className='*:py-4 *:shadow'
+          className='*:py-4 *:shadow **:cursor-pointer'
           >
             {playlistData.slice(9,17).map((item,index) => (
                   <SwiperSlide key={index}>
-                  <img className='rounded-lg' src={item.image} alt={item.title} />
+                  <img className='rounded-lg' src={item.image} alt={item.title} onClick={()=> navigate("/category")} />
                 </SwiperSlide>
             ))}
           </Swiper>
