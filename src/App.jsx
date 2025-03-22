@@ -25,7 +25,7 @@ function App() {
             <Route path="/search" element={<Search />} />
             <Route path="/myrythmix" element={<MyRythmix />} />
             <Route path="category" element={<CategoryPage/>} />
-            <Route path="category/:categoryId/playlist" element={<PlaylistSongPage/>
+            <Route path="category/:categoryId/playlist-songs" element={<PlaylistSongPage/>
             } />
             <Route index element={<Navigate to="/home" />} />
           </Route>
