@@ -202,6 +202,7 @@ function PlayerControls() {
 
   return (
     <>
+    
     <section className='w-full relative px-3 mx-auto bg-background-secondary h-screen'>
 
       {/* player controls */}
@@ -209,7 +210,7 @@ function PlayerControls() {
 
         {/* image & curve container */}
       <div className='flex flex-col items-center justify-center'>
-        <button onClick={() => {navigate("/")}}>
+        <button onClick={() => {navigate(-1)}}>
           <img src="/src/assets/icons/curve.svg" alt="curve.svg" />
         </button>
 

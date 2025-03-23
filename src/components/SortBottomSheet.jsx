@@ -12,7 +12,7 @@ function SortBottomSheet({setShowBottomSheet,handleTextClick}) {
   return (
     <>
     <motion.div 
-    className='w-base fixed bottom-0 left-0 right-0 mx-auto bg-background-secondary font-dana-base shadow-lg text-sm  '
+    className='w-base fixed bottom-0 left-0 right-0 mx-auto bg-background-secondary font-dana-base drop-shadow-2xl text-sm  '
         initial={{y:"100%"}}
         animate={{y:-63}}
         exit={{y:"100%"}}
