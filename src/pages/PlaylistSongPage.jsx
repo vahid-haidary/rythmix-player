@@ -1,9 +1,12 @@
 import axios from 'axios'
-import { ChevronLeft, Share2, ArrowDownNarrowWide, EllipsisVertical, DownloadCloud,CircleCheckBig } from 'lucide-react'
+import { ChevronLeft, Share2, ArrowDownNarrowWide, EllipsisVertical, DownloadCloud, CircleCheckBig } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { setCurrentSong } from '../store/slices/songSlice'
+import categoryData from '../data/categoryData'
+import { AnimatePresence } from 'framer-motion'
+import SortBottomSheet from '../components/SortBottomSheet'
 
 function PlaylistSongPage() {
   const API_URL = import.meta.env.VITE_API_URL
@@ -11,8 +14,11 @@ function PlaylistSongPage() {
   const dispatch = useDispatch()
 
   const navigate = useNavigate()
+  const { categoryId } = useParams()
   const [data, setData] = useState([])
   const [downloadedSong, setDownloadedSong] = useState([])
+  const [showBottomSheet, setShowBottomSheet] = useState(false)
+  const [selectedText, setSelectedText] = useState('پیشنهاد ریتمیکس')
 
   useEffect(() => {
     axios.get(`${API_URL}/Songs`)
@@ -44,7 +50,7 @@ function PlaylistSongPage() {
       downloadedSongsFromStorage.push(newDownload)
       localStorage.setItem("downloadedSongs", JSON.stringify(downloadedSongsFromStorage))
     }
-    
+
     const link = document.createElement("a")
     link.href = song.audio_url
     link.download = `${song.title}.mp3`
@@ -54,26 +60,39 @@ function PlaylistSongPage() {
 
     setTimeout(() => {
       setDownloadedSong(prev => [...prev, song.id])
-    }, 3000);
+    }, 3000)
+  }
+
+  const sortHandle = () => {
+    setShowBottomSheet(true)
+  }
+
+  const category = categoryData.find(item => item.id === Number(categoryId))
+
+  const handleTextClick = (text) => {
+    setSelectedText(text)
+    setShowBottomSheet(false)
   }
 
   return (
-    <div className='w-full h-full relative'>
+    <div className= "w-full h-full relative">
       <div className='relative flex justify-center'>
-        <img src="/src/assets/playlistCard/arabiclist.jpg" className='w-full h-1/2 opacity-45' alt="" />
+        {category && (
+          <img src={category.src} className='w-full h-1/2 opacity-45' alt={category.title} />
+        )}
         <div className='absolute top-1/4 font-dana-bold text-5xl max-w-45 text-center'>
-          <h2>ترندهای اینستاگرام</h2>
+          <h2>{category.title}</h2>
         </div>
         <ChevronLeft className='absolute top-0 left-0 mt-3 ml-3.5 cursor-pointer' size={40} onClick={() => navigate("/category")} />
       </div>
       <div className='flex justify-between bg-background-accent w-[90%] mx-auto py-5 absolute top-115 left-0 right-0 rounded-xl p-2 px-5'>
         <div className='flex flex-col gap-2 justify-around'>
           <div className='font-dana-bold flex gap-2'>
-            <span>12.8m</span>
+            <span>{category.insigth}</span>
             <span>بازدید کننده</span>
           </div>
           <div className='font-dana-bold flex gap-2'>
-            <span>12</span>
+            <span>{category.totalSongs}</span>
             <span>آهنگ</span>
           </div>
         </div>
@@ -88,10 +107,15 @@ function PlaylistSongPage() {
       <div className='mt-16 px-4'>
         <div className='flex gap-1 items-center font-dana-base text-primary'>
           <ArrowDownNarrowWide size={30} className='text-primary' />
-          <h4>ترتیب نمایش:</h4>
-          <h5 className='text-tiny text-text-primary'>پیشنهاد ریتمیکس</h5>
+          <h4 onClick={sortHandle} className='cursor-pointer'>ترتیب نمایش:</h4>
+          <h5 className='text-tiny text-text-primary'>{selectedText}</h5>
         </div>
       </div>
+      <AnimatePresence>
+        {showBottomSheet && (
+          <SortBottomSheet setShowBottomSheet={setShowBottomSheet} handleTextClick={handleTextClick} />
+        )}
+      </AnimatePresence>
       <ul className='flex flex-col gap-1 w-full h-full font-dana-base px-2 mt-7'>
         {data.map((song, index) => (
           <li key={index} className='flex items-center justify-between pl-4 gap-7 p-2 rounded-md'>
@@ -99,7 +123,7 @@ function PlaylistSongPage() {
               <EllipsisVertical className='cursor-pointer' />
               {downloadedSong.includes(song.id) ? (
                 <CircleCheckBig color='green' />
-              ):(
+              ) : (
                 <DownloadCloud className='cursor-pointer active:text-primary' onClick={() => downlodaHandle(song)} />
               )}
             </div>

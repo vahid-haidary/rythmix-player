@@ -15,16 +15,16 @@ function Layout() {
 
     <main className='flex-grow mb-16 mt-14 '>
       <div
-                  initial={{ y: '100%' }}  // شروع انیمیشن از پایین
-                  animate={{ y: 0 }}  // حرکت به بالا
-                  exit={{ y: '100%' }}  // وقتی صفحه بسته می‌شود، انیمیشن برگشت به پایین
-                  transition={{
-                    type: 'spring',
-                    stiffness: 300,
-                    damping: 40,
-                    duration: 1,
-                    ease: 'easeOut',
-                  }}
+            initial={{ y: '100%' }} 
+            animate={{ y: 0 }} 
+            exit={{ y: '100%' }} 
+            transition={{
+              type: 'spring',
+              stiffness: 300,
+              damping: 40,
+              duration: 1,
+              ease: 'easeOut',
+            }}
       >
       <Outlet/>
       </div>

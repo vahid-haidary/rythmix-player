@@ -1,43 +1,73 @@
 const categoryData = [
     {id:1,
         src:"/src/assets/banner/category-banners/category(7).png",
-        title:"ریمیکس"
+        title:"ریمیکس",
+        insigth: "65K",
+        totalSongs : 32,
+        coverPlaylist: "src/assets/banner/category(7).png"
     },
     {id:2,
         src:"/src/assets/banner/category-banners/category(8).png",
-        title:"دهه 60"
+        title:"دهه 60",
+        insigth: "35K",
+        totalSongs : 30,
+        coverPlaylist: "src/assets/banner/category(8).png"
     },
     {id:3,
         src:"/src/assets/banner/category-banners/category(9).png",
-        title:"دهه 70"
+        title:"دهه 70",
+        insigth: "20K",
+        totalSongs : 36,
+        coverPlaylist: "src/assets/banner/category(9).png"
     },
     {id:4,
         src:"/src/assets/banner/category-banners/category(10).png",
-        title:"اجرای زنده"
+        title:"اجرای زنده",
+        insigth: "19K",
+        totalSongs : 34,
+        coverPlaylist: "src/assets/banner/category(10).png"
     },
     {id:5,
         src:"/src/assets/banner/category-banners/category(11).png",
-        title:"برترین ها"
+        title:"برترین ها",
+        insigth: "130K",
+        totalSongs : 30,
+        coverPlaylist: "src/assets/banner/category(11).png"
     },
     {id:6,
         src:"/src/assets/banner/category-banners/category(12).png",
-        title:"پاپ"
+        title:"پاپ",
+        insigth: "10K",
+        totalSongs : 27,
+        coverPlaylist: "src/assets/banner/category(12).png"
     },
     {id:7,
         src:"/src/assets/banner/category-banners/category(13).png",
-        title:"سنتی"
+        title:"سنتی",
+        insigth: "12K",
+        totalSongs : 28,
+        coverPlaylist: "src/assets/banner/category(13).png"
     },
     {id:8,
         src:"/src/assets/banner/category-banners/category(14).png",
-        title:"نوستالژی"
+        title:"نوستالژی",
+        insigth: "13K",
+        totalSongs : 30,
+        coverPlaylist: "src/assets/banner/category(14).png"
     },
     {id:9,
         src:"/src/assets/banner/category-banners/category(15).png",
-        title:"قدیمی"
+        title:"قدیمی",
+        insigth: "13K",
+        totalSongs : 32,
+        coverPlaylist: "src/assets/banner/category(15).png"
     },
     {id:10,
         src:"/src/assets/banner/category-banners/category(16).png",
-        title:"شاد"
+        title:"شاد",
+        insigth: "13K",
+        totalSongs : 17,
+        coverPlaylist: "src/assets/banner/category(16).png"
     },
 ]
 export default categoryData
