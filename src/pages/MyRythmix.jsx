@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 
 function MyRythmix() {
   const navigate = useNavigate()
+
   return (
     <div>
       <div className='w-full bg-background-secondary rounded-b-[40px] font-dana-reg'>
@@ -18,7 +19,7 @@ function MyRythmix() {
             </div>
             </div>
             <div className='flex justify-center my-3'>
-              <button className='bg-primary text-black px-14 py-3 rounded-3xl'>افزایش اعتبار</button>
+              <button className='bg-primary text-black px-14 py-3 rounded-3xl cursor-pointer' onClick={() =>navigate("/plans")}>افزایش اعتبار</button>
             </div>
 
             <div className='w-[90%] mt-6 mb-4 p-2 flex justify-between items-center mx-auto bg-background2 rounded-2xl border border-gray-500 cursor-pointer'>

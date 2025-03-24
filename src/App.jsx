@@ -10,6 +10,7 @@ import MyRythmix from "./pages/MyRythmix";
 import { AnimatePresence, motion } from "framer-motion";
 import PlaylistSongPage from "./pages/PlaylistSongPage";
 import CategoryPage from "./pages/CategoryPage";
+import Plans from "./pages/Plans";
 
 function App() {
   const location = useLocation();
@@ -29,6 +30,7 @@ function App() {
             } />
             <Route index element={<Navigate to="/home" />} />
           </Route>
+            <Route path="/plans" element={<Plans/>} />
         </Routes>
 
         {/* AnimatePresence Player*/}
