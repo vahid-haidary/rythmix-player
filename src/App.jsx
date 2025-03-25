@@ -11,27 +11,41 @@ import { AnimatePresence, motion } from "framer-motion";
 import PlaylistSongPage from "./pages/PlaylistSongPage";
 import CategoryPage from "./pages/CategoryPage";
 import Plans from "./pages/Plans";
+import SplashScreen from "./components/SplashScreen";
+import React, { useState, useEffect } from 'react';
 
 function App() {
   const location = useLocation();
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <LoadingProvider>
       <div className="max-w-base mx-auto flex flex-col bg-background text-white min-h-screen">
-        <Routes location={location}>
-          <Route path="/" element={<Layout />} >
-            <Route path="home" element={<Home />} />
-            <Route path="/playlist" element={<Playlist />} />
-            <Route path="/downloads" element={<Downloads />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/myrythmix" element={<MyRythmix />} />
-            <Route path="category" element={<CategoryPage/>} />
-            <Route path="category/:categoryId/playlist-songs" element={<PlaylistSongPage/>
-            } />
-            <Route index element={<Navigate to="/home" />} />
-          </Route>
-            <Route path="/plans" element={<Plans/>} />
-        </Routes>
+        {showSplash ? (
+          <SplashScreen />
+        ) : (
+          <Routes location={location}>
+            <Route path="/" element={<Layout />} >
+            <Route path="*" element={<Navigate to="/" />} />
+              <Route index element={<Home />} />
+              <Route path="playlist" element={<Playlist />} />
+              <Route path="downloads" element={<Downloads />} />
+              <Route path="search" element={<Search />} />
+              <Route path="myrythmix" element={<MyRythmix />} />
+              <Route path="category" element={<CategoryPage />} />
+              <Route path="category/:categoryId/playlist-songs" element={<PlaylistSongPage />} />
+            </Route>
+            <Route path="/plans" element={<Plans />} />
+          </Routes>
+        )}
 
         {/* AnimatePresence Player*/}
         <AnimatePresence>

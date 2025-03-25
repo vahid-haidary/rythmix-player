@@ -1,4 +1,3 @@
-import { AnimatePresence, motion } from 'framer-motion'
 import { Check, Plus ,Minus} from 'lucide-react'
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
