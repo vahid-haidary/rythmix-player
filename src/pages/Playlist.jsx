@@ -1,4 +1,5 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
 const playlists = [
   {
@@ -22,10 +23,17 @@ const playlists = [
 ];
 
 function PlaylistSection({ title, images }) {
+
+  const navigate = useNavigate()
+  function handleCategoryClick() {
+    navigate('/category')
+  }
+
   return (
     <div className='my-4'>
       <span className='text-text-accent'>{title}</span>
-      <div className='grid grid-cols-2 grid-rows-2 gap-1.5 *:rounded-xl mt-3'>
+      <div className='grid grid-cols-2 grid-rows-2 gap-1.5 *:rounded-xl *:cursor-pointer mt-3'
+      onClick={handleCategoryClick}>
         {images.map((src, index) => (
           <img key={index} src={src} alt={`تصویر ${title} ${index + 1}`} />
         ))}

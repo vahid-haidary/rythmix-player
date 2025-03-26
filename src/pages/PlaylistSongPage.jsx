@@ -85,7 +85,7 @@ function PlaylistSongPage() {
     <div className="w-full h-full relative">
       <div className='relative flex justify-center'>
         {cover && (
-          <img src={cover} alt={title} className='w-full h-1/2 opacity-45' />
+          <img src={cover} alt={title} className='w-full h-1/2 max-h-[520px] opacity-45' />
         )}
         {category && (
           <img src={category.src} className='w-full h-1/2 opacity-45' alt={category.title} />
