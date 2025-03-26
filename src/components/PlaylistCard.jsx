@@ -3,7 +3,7 @@ import {ChevronLeft} from 'lucide-react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import playlistData from '../data/playlistCardData'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 function PlaylistCard() {
 
@@ -16,7 +16,7 @@ function PlaylistCard() {
         <div className='flex justify-between items-center px-2.5'>
           <span className='font-kalameh-extra text-[26px] pr-2'>پلی لیست ها</span>
           <button className='flex items-center text-xs font-kalameh-base'>
-            <span>دیدن همه</span>
+            <Link to={"/playlist"}>دیدن همه</Link>
             <ChevronLeft />
           </button>
         </div>

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
 import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { setCurrentSong,setSongs } from '../store/slices/songSlice'
 
 function  MusicTemplate({titr,icon,reverse,showHeader}) {
@@ -50,7 +50,7 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
                         <h3 className='text-base text-text-primary'>{titr}</h3>
                     </span>
                     <span className='flex items-center text-text-accent'>
-                        <button className='text-xs '>دیدن همه</button>
+                        <Link to="/playlist" className='text-xs '>دیدن همه</Link>
                         <ChevronLeft/>
                     </span>
                 </div>

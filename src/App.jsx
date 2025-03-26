@@ -42,6 +42,7 @@ function App() {
               <Route path="myrythmix" element={<MyRythmix />} />
               <Route path="category" element={<CategoryPage />} />
               <Route path="category/:categoryId/playlist-songs" element={<PlaylistSongPage />} />
+            <Route path="/playlist-songs/:id" element={<PlaylistSongPage />} />
             </Route>
             <Route path="/plans" element={<Plans />} />
           </Routes>
