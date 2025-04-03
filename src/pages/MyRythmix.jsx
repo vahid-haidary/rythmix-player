@@ -97,7 +97,7 @@ function MyRythmix() {
           <div className='flex flex-col gap-2'>
             <span className='text-xs text-text-accent'>هنوز خواننده ای را ندیده اید!</span>
               <div className='flex gap-6'>
-              <span className='text-tiny-small text-primary font-dana-bold'>خواننده محبوبتان را جستجو کنید</span>
+              <span className='text-tiny-small text-primary font-dana-bold max-xs:text-xs'>خواننده محبوبتان را جستجو کنید</span>
               <ChevronLeft className='text-primary'/>
               </div>
           </div>
@@ -116,7 +116,7 @@ function MyRythmix() {
           <div className='flex flex-col gap-2'>
             <span className='text-xs text-text-accent '>هنوز پلی لیستی ندیده اید!</span>
               <div className='flex gap-6'>
-              <span className='text-tiny-small text-primary font-dana-bold'>پلی لیست محبوبتان را جستجو کنید</span>
+              <span className='text-tiny-small text-primary font-dana-bold max-xs:text-xs'>پلی لیست محبوبتان را جستجو کنید</span>
               <ChevronLeft className='text-primary'/>
               </div>
           </div>

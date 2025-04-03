@@ -15,7 +15,7 @@ function Plans() {
     <div>
         <div className='flex fixed left-0 right-0 mx-auto justify-center cursor-pointer'>
           <button onClick={() => {navigate(-1)}}>
-            <img className='' src="/src/assets/icons/curve.svg" alt="curve.svg" />
+            <img className='max-xs:w-32' src="/src/assets/icons/curve.svg" alt="curve.svg" />
           </button>
         </div>
         <div className='w-[95%]  mx-auto pb-6 bg-gradient-to-b from-green-rytm to-background-accent shadow-[0px_15px_6px_0px_rgba(0,_0,_0,_0.1)] rounded-b-3xl '>
@@ -87,7 +87,7 @@ function Plans() {
                 <span className='w-full h-0.5 bg-black -px-[20px] block mt-4 mb-2' ></span>
               </div>
               <div className='text-center'>
-                <span className='bg-background-accent w-[90%] rounded-3xl font-dana-base text-tiny px-10 py-0.5'>🎉تخفیف ویژه سال نو</span>
+                <span className='bg-background-accent w-[90%] max-xs:px-1 rounded-3xl font-dana-base text-tiny px-10 py-0.5'>🎉تخفیف ویژه سال نو</span>
               </div>
 
               <span className='font-kalameh-base text-tiny pb-4 py-3'>هرماه:</span>
@@ -110,7 +110,7 @@ function Plans() {
                 <span className='w-full h-0.5 bg-black block mt-4 mb-2' ></span>
               </div>
               <div className='text-center'>
-                <span className='bg-background-accent w-[90%] rounded-3xl font-dana-base text-tiny px-12 py-0.5 text-primary'>%51 تخفیف</span>
+                <span className='bg-background-accent w-[90%] rounded-3xl font-dana-base text-tiny max-xs:px-4 px-12 py-0.5 text-primary'>%51 تخفیف</span>
               </div>
 
               <span className='font-kalameh-base text-tiny pb-4 py-3'>هرماه:</span>
@@ -133,7 +133,7 @@ function Plans() {
                 <span className='w-full h-0.5 bg-black block mt-4 mb-2' ></span>
               </div>
               <div className='text-center'>
-                <span className='bg-background-accent w-[90%] rounded-3xl font-dana-base text-tiny px-12 py-0.5 text-primary'>%34 تخفیف</span>
+                <span className='bg-background-accent w-[90%] rounded-3xl font-dana-base text-tiny max-xs:px-2 px-12 py-0.5 text-primary'>%34 تخفیف</span>
               </div>
 
               <span className='font-kalameh-base text-tiny pb-4 py-3'>هرماه:</span>

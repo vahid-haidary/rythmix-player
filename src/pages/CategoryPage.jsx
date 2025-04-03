@@ -9,14 +9,14 @@ function CategoryPage() {
   }
   return (
     <div className='py-8 px-4'>
-        <div className='grid grid-cols-2 gap-5 gap-y-10'>
+        <div className='grid grid-cols-2 gap-5 xs:gap-y-10'>
         {categoryData.map((item => (
             <div key={item.id} onClick={() => clickHandle(item)}>
-                <img className='max-w-[234px] max-h-[234px] cursor-pointer' src={item.src} alt={item.title} />
+                <img className='max-w-[234px] max-xs:w-[160px] max-h-[234px] max-xs:h-[160px] cursor-pointer' src={item.src} alt={item.title} />
             </div>
         )))}
         </div>
-    </div>
+    </div>  
   )
 }
 

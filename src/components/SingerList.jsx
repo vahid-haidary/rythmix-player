@@ -42,6 +42,21 @@ function SingerList({ icon, titr, showHeader, reverse }) {
           modules={[Navigation]}
           spaceBetween={9}
           slidesPerView={4.5}
+          breakpoints={{
+            520: {
+              slidesPerView: 4,
+              spaceBetween:12
+            },
+            480: {
+              slidesPerView: 2.5,
+              spaceBetween:4
+            },
+            0: {
+              slidesPerView: 2.5,
+              spaceBetween:4
+            },
+            
+          }}
           className='**:rounded-full mt-3'
         >
           {loading ? (
@@ -58,7 +73,7 @@ function SingerList({ icon, titr, showHeader, reverse }) {
                 key={item.id}
                 onClick={() => navigate(`/playlist-songs/${item.id}`, {state: {cover: item.src, title: item.title}})}
               >
-                <img className='mb-2 w-24 h-24 rounded-full object-cover border-2 border-text-primary' src={item.src} alt="" />
+                <img className='mb-2 w-24 h-24 max-sm:w-32 max-sm:h-32 rounded-full object-cover border-2 border-text-primary' src={item.src} alt="" />
                 <span className='font-dana-base text-tiny text-text-secondary text-center overflow-hidden w-24'>{item.title}</span>
               </SwiperSlide>
             ))

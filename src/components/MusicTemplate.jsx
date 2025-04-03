@@ -61,6 +61,18 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
             modules={[Navigation]}
             spaceBetween={9}
             slidesPerView={4.5}
+            breakpoints={{
+              520: {
+                slidesPerView: 4.5,
+              },
+              360: {
+                slidesPerView: 2.5  ,
+              },
+              0: {
+                slidesPerView: 2.5,
+              },
+              
+            }}
             className='**:rounded-md mt-3'
         >
             {loading ?

@@ -214,7 +214,7 @@ function PlayerControls() {
           <img src="/src/assets/icons/curve.svg" alt="curve.svg" />
         </button>
 
-          <div className='max-w-full min-h-[33.5vh] w-[34.25vh] shadow-lg shadow-gray-900 my-1.5 rounded-2xl'>
+          <div className='max-w-full min-h-[33.5vh] w-[34.25vh] shadow-lg shadow-gray-900 my-1.5 rounded-2xl max-xs:mt-12'>
             <img className='rounded-2xl' src={currentSong.cover_url} alt={currentSong.title} />
           </div>
       </div>
@@ -265,7 +265,7 @@ function PlayerControls() {
               </div>
 
             {/* controler Buttons */}
-            <div className='flex justify-between items-center '>
+            <div className='flex justify-between items-center max-xs:mt-8 '>
              <Shuffle size={20}  strokeWidth={1.75} className={`${isShuffle? "text-primary" : "text-white"} cursor-pointer`} onClick={shuffelingHandle}  />
 
               <img className={`h-8 w-8 cursor-pointer ${isLastSong ? "opacity-20 cursor-not-allowed" : ""}`} src="/src/assets/icons/next.svg" onClick={handleNext} alt="next" />
@@ -275,9 +275,9 @@ function PlayerControls() {
               <button onClick={tooglePlayPause} >
                 {
                   isPlaying ? 
-                  <img className='w-[80px] h-[80px]' src="/src/assets/icons/pause.svg" alt="pause" />
+                  <img className='w-[80px] max-xs:w-[60px] h-[80px] max-xs:h-[60px]' src="/src/assets/icons/pause.svg" alt="pause" />
                   :(
-                    (<img className='w-[80px] h-[80px]'  src="/src/assets/icons/play.svg" alt="play" />)
+                    (<img className='w-[80px] max-xs:w-[60px] h-[80px] max-xs:h-[60px]'  src="/src/assets/icons/play.svg" alt="play" />)
                   )
                 }
               </button>

@@ -17,7 +17,7 @@ function SplashScreen() {
     },[navigate])
 
   return (
-    <div className='relative flex items-center justify-center overflow-hidden'>
+    <div className='relative flex items-center justify-center overflow-hidden h-screen'>
         <motion.img src="/src/assets/splashScreen/splash1.jpg" 
         className='w-full h-full object-cover'
          alt=""

@@ -30,12 +30,12 @@ function PlaylistSection({ title, images }) {
   }
 
   return (
-    <div className='my-4'>
+    <div className='my-8'>
       <span className='text-text-accent'>{title}</span>
       <div className='grid grid-cols-2 grid-rows-2 gap-1.5 *:rounded-xl *:cursor-pointer mt-3'
       onClick={handleCategoryClick}>
         {images.map((src, index) => (
-          <img key={index} src={src} alt={`تصویر ${title} ${index + 1}`} />
+          <img key={index} className='max-sm:h-32' src={src} alt={`تصویر ${title} ${index + 1}`} />
         ))}
       </div>
     </div>

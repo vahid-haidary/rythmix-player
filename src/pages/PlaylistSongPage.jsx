@@ -99,7 +99,7 @@ function PlaylistSongPage() {
         <ChevronLeft className='absolute top-0 left-0 mt-3 ml-3.5 cursor-pointer' size={40} onClick={() => navigate(category ? "/category" : "/")} />
       </div>
       {(category || cover) && (
-  <div className='flex justify-between bg-background-accent w-[90%] mx-auto py-5 absolute top-115 left-0 right-0 rounded-xl p-2 px-5'>
+  <div className='flex justify-between bg-background-accent w-[90%] mx-auto py-5 absolute top-115 max-xs:top-80 left-0 right-0 rounded-xl p-2 px-5'>
     <div className='flex flex-col gap-2 justify-around'>
       <div className='font-dana-bold flex gap-2'>
         <span>{category?.insigth}</span>
@@ -119,7 +119,7 @@ function PlaylistSongPage() {
   </div>
 )}
 
-      <div className='mt-16 px-4'>
+      <div className='mt-16 px-4 max-xs:mt-20'>
         <div className='flex gap-1 items-center font-dana-base text-primary'>
           <ArrowDownNarrowWide size={30} className='text-primary' />
           <h4 onClick={sortHandle} className='cursor-pointer'>ترتیب نمایش:</h4>
