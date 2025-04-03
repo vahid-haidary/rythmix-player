@@ -30,6 +30,8 @@ function PlayerControls() {
 
   const [showTimer, setShowTimer] = useState(false)
 
+  const [like, setLike] = useState(false)
+
   
   useEffect(() => {
     if (currentSong && audioRef.current) {
@@ -192,7 +194,42 @@ function PlayerControls() {
   }
   
 
+
+    //get like reaction
+    const getReaction = (postId) => {
+      const reactions = JSON.parse(localStorage.getItem("reactions")) || {};
+      return reactions[postId] || null;
+    }
+
+    const setReaction = (postId,reaction) => {
+      let reactions = JSON.parse(localStorage.getItem("reactions")) || {};
+
+      if(reactions[postId] === reaction){
+        delete reactions[postId]
+      }else{
+        reactions[postId] = reaction;
+
+      }
+      localStorage.setItem("reactions", JSON.stringify(reactions))
+    }
     
+      //Like Handle
+  
+      const likeHandle = () => {
+        if(!currentSong) return
+        const isLiked = getReaction(currentSong.id) === "like"
+        setReaction(currentSong.id, isLiked ? null : "like")
+        setLike(!isLiked)
+      }
+      
+      useEffect(() => {
+        if(currentSong){
+          const isLiked = getReaction(currentSong.id) === "like"
+          setLike(isLiked)
+        }
+      },[currentSong])
+
+
   // SetError
   if (!currentSong) {
     return <h3 className="text-center mt-10 text-white">هیچ آهنگی انتخاب نشده است</h3>
@@ -297,8 +334,13 @@ function PlayerControls() {
         <EllipsisVertical size={28} />    
         </button>
 
-        <button className='focus:text-primary'>
-        <Heart size={28} strokeWidth={2.5} />
+        <button onClick={likeHandle}>
+          {like ? (
+            <Heart size={28} className='text-primary' strokeWidth={2.5} />
+          ):(
+            <Heart size={28} className='text-text-primary' strokeWidth={2.5} />
+          )}
+        
         </button>
 
         <div className='flex flex-col items-center text-sm'>
