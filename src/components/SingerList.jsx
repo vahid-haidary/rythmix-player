@@ -69,7 +69,7 @@ function SingerList({ icon, titr, showHeader, reverse }) {
           ) : (
             (reverse ? [...artistPic].reverse() : artistPic).map((item) => (
               <SwiperSlide
-                className='flex flex-col items-center cursor-pointer'
+                className='flex flex-col items-center xs:*:flex xs:*:flex-col xs:*:text-center cursor-pointer'
                 key={item.id}
                 onClick={() => navigate(`/playlist-songs/${item.id}`, {state: {cover: item.src, title: item.title}})}
               >

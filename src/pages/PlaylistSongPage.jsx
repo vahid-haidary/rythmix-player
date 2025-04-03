@@ -88,7 +88,7 @@ function PlaylistSongPage() {
           <img src={cover} alt={title} className='w-full h-1/2 max-h-[520px] opacity-45' />
         )}
         {category && (
-          <img src={category.src} className='w-full h-1/2 opacity-45' alt={category.title} />
+          <img src={category.coverPlaylist} className='w-full max-h-[520px] opacity-45' alt={category.title} />
         )}
         <div className='absolute top-1/4 font-dana-bold text-5xl max-w-52 text-center'>
           <h2>{category ? category.title : 'پلی لیست'}</h2>
