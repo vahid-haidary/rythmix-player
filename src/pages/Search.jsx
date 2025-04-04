@@ -70,7 +70,7 @@ function Search() {
 
         {(searchText === "" && !isSearchPerformed) && (
           <d  iv className='flex flex-col absolute top-[160px] right-[210px] max-xs:right-[130px]'>
-            <img className='w-28 h-28' src="/src/assets/icons/cactus.svg" alt="" />
+            <img className='w-28 h-28' src="/assets/icons/cactus.svg" alt="" />
             <SearchIcon className='text-text-primary absolute top-[57px]' size={48} />
             <span className='font-dana-base mx-auto text-text-primary'>عبارتی وجود ندارد</span>
           </d>
@@ -97,7 +97,7 @@ function Search() {
               ))
             ) : (
               <div className='flex flex-col !bg-background absolute top-[160px] right-[210px] max-xs:right-[130px]'>
-                <img className='w-28 h-28' src="/src/assets/icons/cactus.svg" alt="" />
+                <img className='w-28 h-28' src="/assets/icons/cactus.svg" alt="" />
                 <SearchIcon className='text-text-primary absolute top-[57px]' size={48} />
                 <span className='font-dana-base mx-auto text-text-primary'>عبارتی وجود ندارد</span>
               </div>

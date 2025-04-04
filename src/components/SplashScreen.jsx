@@ -18,7 +18,7 @@ function SplashScreen() {
 
   return (
     <div className='relative flex items-center justify-center overflow-hidden h-screen'>
-        <motion.img src="/src/assets/splashScreen/splash1.jpg" 
+        <motion.img src="/assets/splashScreen/splash1.jpg" 
         className='w-full h-full object-cover'
          alt=""
          initial={{scale: 1}}
@@ -29,7 +29,7 @@ function SplashScreen() {
         <div className='absolute top-0 left-0 right-0 bottom-0 w-full h-full bg-primary opacity-70'></div>
 
         <div className='absolute flex flex-col items-center gap-2'>
-        <img src="/src/assets/logo/Group 1000003660.png" 
+        <img src="/assets/logo/Group 1000003660.png" 
         className='w-24 h-24'
         alt="" />
         <h2 className='font-kalameh-bold text-2xl text-black'>ریتمیکس</h2>

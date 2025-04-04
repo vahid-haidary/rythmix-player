@@ -26,7 +26,7 @@ function SingerList({ icon, titr, showHeader, reverse }) {
       {showHeader && (
         <div className='w-[97%] h-fit flex justify-between items-center bg-background-accent px-2 py-1.5 mx-auto rounded-2xl font-kalameh-base'>
           <span className='flex items-center gap-2'>
-            <img className='w-5' src={`/src/assets/icons/${icon}.png`} alt="icon" />
+            <img className='w-5' src={`/assets/icons/${icon}.png`} alt="icon" />
             <h3 className='text-base text-text-primary'>{titr}</h3>
           </span>
           <span className='flex items-center text-text-accent'>

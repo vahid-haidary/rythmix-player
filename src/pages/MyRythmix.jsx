@@ -11,7 +11,7 @@ function MyRythmix() {
       <div className='w-full bg-background-secondary rounded-b-[40px] font-dana-reg'>
         <div className='flex flex-col '>
             <div className='flex items-center justify-center '>
-            <img className='w-60 h-36 -mx-[60px]' src="/src/assets/icons/listenSong.png" alt="listenSong" />
+            <img className='w-60 h-36 -mx-[60px]' src="/assets/icons/listenSong.png" alt="listenSong" />
             <div className='flex flex-col items-center gap-2.5 text-primary'>
             <Crown />
               <span className='text-sm'>اعتبار ویژه:</span>
@@ -24,7 +24,7 @@ function MyRythmix() {
 
             <div className='w-[90%] mt-6 mb-4 p-2 flex justify-between items-center mx-auto bg-background2 rounded-2xl border border-gray-500 cursor-pointer'>
               <div className='flex gap-3 items-center'>
-              <img className='w-[60px] h-[60px]' src="/src/assets/icons/Vip.png" alt="" />
+              <img className='w-[60px] h-[60px]' src="/assets/icons/Vip.png" alt="" />
               <div className='flex flex-col gap-2'>
                 <span className=' text-tiny-small text-primary'>پشتیبانی کاربران ویژه</span>
                 <span className='text-xs text-text-accent'>پاسخگویی با اولویت ویژه</span>
@@ -43,7 +43,7 @@ function MyRythmix() {
 
         <div className='w-[90%] p-2 flex justify-between items-center mx-auto font-dana-base bg-background2 rounded-2xl cursor-pointer'>
           <div className='flex gap-3 items-center'>
-            <img className='w-[60px] h-[60px]' src="/src/assets/icons/Vip.png" alt="" />
+            <img className='w-[60px] h-[60px]' src="/assets/icons/Vip.png" alt="" />
             <div className='flex flex-col gap-2'>
               <span className='text-tiny-small'>آهنگ های لایک شده</span>
               <span className='text-xs text-text-accent'>15 آهنگ</span>
@@ -54,7 +54,7 @@ function MyRythmix() {
 
         <div className='w-[90%] p-2 flex justify-between items-center mx-auto font-dana-base bg-background2 rounded-2xl cursor-pointer'>
           <div className='flex gap-3 items-center'>
-            <img className='w-[60px] h-[60px]' src="/src/assets/icons/Vip.png" alt="" />
+            <img className='w-[60px] h-[60px]' src="/assets/icons/Vip.png" alt="" />
             <div className='flex flex-col gap-2'>
               <span className='text-tiny-small'>پلی لیست های من</span>
               <span className='text-xs text-text-accent'>3 آهنگ</span>
@@ -65,7 +65,7 @@ function MyRythmix() {
 
         <div className='w-[90%] p-2 flex justify-between items-center mx-auto font-dana-base bg-background2 rounded-2xl cursor-pointer'>
           <div className='flex gap-3 items-center'>
-            <img className='w-[60px] h-[60px]' src="/src/assets/icons/Vip.png" alt="" />
+            <img className='w-[60px] h-[60px]' src="/assets/icons/Vip.png" alt="" />
             <div className='flex flex-col gap-2'>
               <span className='text-tiny-small'>پلی لیست های دنبال شده</span>
               <span className='text-xs text-text-accent'>10 آهنگ</span>
@@ -76,7 +76,7 @@ function MyRythmix() {
 
         <div className='w-[90%] p-2 flex justify-between items-center mx-auto font-dana-base bg-background2 rounded-2xl cursor-pointer'>
           <div className='flex gap-3 items-center'>
-            <img className='w-[60px] h-[60px]' src="/src/assets/icons/Vip.png" alt="" />
+            <img className='w-[60px] h-[60px]' src="/assets/icons/Vip.png" alt="" />
             <div className='flex flex-col gap-2'>
               <span className='text-tiny-small'>هنرمندان دنبال شده</span>
               <span className='text-xs text-text-accent'>0 آهنگ</span>
@@ -93,7 +93,7 @@ function MyRythmix() {
         </div>
 
         <div className='p-4 mt-6 flex justify-around items-center mx-auto font-dana-base bg-background2 rounded-2xl cursor-pointer' onClick={() => navigate("/search")} >
-            <img className='pt-2.5' src="/src/assets/icons/downloadsIcon.svg" alt="" />
+            <img className='pt-2.5' src="/assets/icons/downloadsIcon.svg" alt="" />
           <div className='flex flex-col gap-2'>
             <span className='text-xs text-text-accent'>هنوز خواننده ای را ندیده اید!</span>
               <div className='flex gap-6'>
@@ -112,7 +112,7 @@ function MyRythmix() {
         </div>
 
         <div className='p-4 mt-6 flex justify-around items-center mx-auto font-dana-base bg-background2 rounded-2xl cursor-pointer' onClick={() => navigate("/search")}>
-            <img className='pt-2.5' src="/src/assets/icons/downloadsIcon.svg" alt="" />
+            <img className='pt-2.5' src="/assets/icons/downloadsIcon.svg" alt="" />
           <div className='flex flex-col gap-2'>
             <span className='text-xs text-text-accent '>هنوز پلی لیستی ندیده اید!</span>
               <div className='flex gap-6'>

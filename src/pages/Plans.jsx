@@ -15,12 +15,12 @@ function Plans() {
     <div>
         <div className='flex fixed left-0 right-0 mx-auto justify-center cursor-pointer'>
           <button onClick={() => {navigate(-1)}}>
-            <img className='max-xs:w-32' src="/src/assets/icons/curve.svg" alt="curve.svg" />
+            <img className='max-xs:w-32' src="/assets/icons/curve.svg" alt="curve.svg" />
           </button>
         </div>
         <div className='w-[95%]  mx-auto pb-6 bg-gradient-to-b from-green-rytm to-background-accent shadow-[0px_15px_6px_0px_rgba(0,_0,_0,_0.1)] rounded-b-3xl '>
           <div className='pt-10'>
-          <img className=' w-[90%] mx-auto rounded-2xl ' src="/src/assets/banner/banner2.png" alt="" />
+          <img className=' w-[90%] mx-auto rounded-2xl ' src="/assets/banner/banner2.png" alt="" />
           </div>
 
           <div className='w-[90%] mx-auto mt-6'>

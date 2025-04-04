@@ -248,7 +248,7 @@ function PlayerControls() {
         {/* image & curve container */}
       <div className='flex flex-col items-center justify-center'>
         <button onClick={() => {navigate(-1)}}>
-          <img src="/src/assets/icons/curve.svg" alt="curve.svg" />
+          <img src="/assets/icons/curve.svg" alt="curve.svg" />
         </button>
 
           <div className='max-w-full min-h-[33.5vh] w-[34.25vh] shadow-lg shadow-gray-900 my-1.5 rounded-2xl max-xs:mt-12'>
@@ -305,21 +305,21 @@ function PlayerControls() {
             <div className='flex justify-between items-center max-xs:mt-8 '>
              <Shuffle size={20}  strokeWidth={1.75} className={`${isShuffle? "text-primary" : "text-white"} cursor-pointer`} onClick={shuffelingHandle}  />
 
-              <img className={`h-8 w-8 cursor-pointer ${isLastSong ? "opacity-20 cursor-not-allowed" : ""}`} src="/src/assets/icons/next.svg" onClick={handleNext} alt="next" />
+              <img className={`h-8 w-8 cursor-pointer ${isLastSong ? "opacity-20 cursor-not-allowed" : ""}`} src="/assets/icons/next.svg" onClick={handleNext} alt="next" />
 
               <audio ref={audioRef} src={currentSong.audio_url} onEnded={handleEnded} className='w-full'></audio>
 
               <button onClick={tooglePlayPause} >
                 {
                   isPlaying ? 
-                  <img className='w-[80px] max-xs:w-[60px] h-[80px] max-xs:h-[60px]' src="/src/assets/icons/pause.svg" alt="pause" />
+                  <img className='w-[80px] max-xs:w-[60px] h-[80px] max-xs:h-[60px]' src="/assets/icons/pause.svg" alt="pause" />
                   :(
-                    (<img className='w-[80px] max-xs:w-[60px] h-[80px] max-xs:h-[60px]'  src="/src/assets/icons/play.svg" alt="play" />)
+                    (<img className='w-[80px] max-xs:w-[60px] h-[80px] max-xs:h-[60px]'  src="/assets/icons/play.svg" alt="play" />)
                   )
                 }
               </button>
 
-              <img className='h-8 w-8 cursor-pointer' src="/src/assets/icons/previous.svg" onClick={handlePrevious}  alt="previous" />
+              <img className='h-8 w-8 cursor-pointer' src="/assets/icons/previous.svg" onClick={handlePrevious}  alt="previous" />
 
              <Repeat size={20} className={`${isRepeating ? "text-primary" : "text-white"} cursor-pointer`} strokeWidth={1.75} onClick={toggleRepeat} />
 

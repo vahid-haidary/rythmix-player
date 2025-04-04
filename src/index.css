@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-    --color-primary : #FFCA27;
+    --color-primary : #FFCA27;      
     --color-background: #303030;
     --color-background2: #3f3f3f;
     --color-background-secondary: #212121;
@@ -38,32 +38,32 @@
 
 @font-face {
     font-family: dana-reg;
-    src: url("./assets/fonts/dana/DanaFaNum-Regular.woff2") format("woff2");
+    src: url("/assets/fonts/dana/DanaFaNum-Regular.woff2") format("woff2");
 }
 @font-face {
     font-family: dana-base;
-    src: url("./assets/fonts/dana/DanaFaNum-Medium.woff2") format("woff2");
+    src: url("/assets/fonts/dana/DanaFaNum-Medium.woff2") format("woff2");
 }
 @font-face {
     font-family: dana-bold;
-    src: url("./assets/fonts/dana/DanaFaNum-DemiBold.woff2") format("woff2");
+    src: url("/assets/fonts/dana/DanaFaNum-DemiBold.woff2") format("woff2");
 }
 
 
 @font-face {
     font-family: kalameh-reg;
-    src: url("./assets/fonts/kalameh/Kalameh-Regular.ttf") format("truetype");
+    src: url("/assets/fonts/kalameh/Kalameh-Regular.ttf") format("truetype");
 }
 @font-face {
     font-family: kalameh-base;
-    src: url("./assets/fonts/kalameh/Kalameh-Medium.ttf") format("truetype");
+    src: url("/assets/fonts/kalameh/Kalameh-Medium.ttf") format("truetype");
 }
 @font-face {
     font-family: kalameh-bold;
-    src: url("./assets/fonts/kalameh/Kalameh-Bold.ttf") format("truetype");
+    src: url("/assets/fonts/kalameh/Kalameh-Bold.ttf") format("truetype");
 }
 @font-face {
     font-family: kalameh-extra;
-    src: url("./assets/fonts/kalameh/Kalameh-ExtraBold.ttf") format("truetype");
+    src: url("/assets/fonts/kalameh/Kalameh-ExtraBold.ttf") format("truetype");
 }
 

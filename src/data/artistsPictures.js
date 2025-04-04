@@ -14,7 +14,7 @@ const artistPic = [
     { id: 13, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/golab.jpg", title: "گلاب" },
     { id: 14, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/hamim.jpg", title: "حامیم" },
     { id: 15, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/jahani.jpg", title: "جهانی" },
-    { id: 16, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/rastak.jpg", title: "رستاک" },
+    { id: 16, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/rastak2.jpg", title: "رستاک" },
     { id: 17, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/reza-bahram.jpeg", title: "بهرام" },
     { id: 18, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/salar.jpg", title: "عقیلی" },
     { id: 19, src: "https://rythmix-files.storage.c2.liara.space/artist_logo/vakili.jpg", title: "زندوکیلی" },

@@ -16,7 +16,7 @@ function PlaylistBanner() {
         >
             {[...Array(6)].map((_,index) => (
             <SwiperSlide key={index}>
-                <img className='cursor-pointer' src={`/src/assets/banner/playlistBanner/Banner${index + 1}.png`} alt={`banner${index + 1}`} />
+                <img className='cursor-pointer' src={`/assets/banner/playlistBanner/Banner${index + 1}.png`} alt={`banner${index + 1}`} />
             </SwiperSlide>
                 
             ))}

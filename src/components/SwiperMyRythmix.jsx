@@ -23,9 +23,9 @@ function SwiperMyRythmix() {
       }}
        modules={[Navigation]}
           >
-        <SwiperSlide><img className='rounded-3xl w-[190px] max-xs:w-[160px] h-[152px] mx-auto' src="/src/assets/banner/myRytmix/myRytmix(1).png" alt="Banner1" /></SwiperSlide>
-        <SwiperSlide><img className='rounded-3xl w-[190px] max-xs:w-[160px] h-[152px] mx-auto' src="/src/assets/banner/myRytmix/myRytmix(2).png" alt="Banner2" /></SwiperSlide>
-        <SwiperSlide><img className='rounded-3xl w-[190px] max-xs:w-[160px] h-[152px] mx-auto' src="/src/assets/banner/myRytmix/myRytmix(3).png" alt="Banner2" /></SwiperSlide>
+        <SwiperSlide><img className='rounded-3xl w-[190px] max-xs:w-[160px] h-[152px] mx-auto' src="/assets/banner/myRytmix/myRytmix(1).png" alt="Banner1" /></SwiperSlide>
+        <SwiperSlide><img className='rounded-3xl w-[190px] max-xs:w-[160px] h-[152px] mx-auto' src="/assets/banner/myRytmix/myRytmix(2).png" alt="Banner2" /></SwiperSlide>
+        <SwiperSlide><img className='rounded-3xl w-[190px] max-xs:w-[160px] h-[152px] mx-auto' src="/assets/banner/myRytmix/myRytmix(3).png" alt="Banner2" /></SwiperSlide>
     </Swiper>
     </div>
   )
