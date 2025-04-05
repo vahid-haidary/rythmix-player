@@ -67,3 +67,17 @@
     src: url("/assets/fonts/kalameh/Kalameh-ExtraBold.ttf") format("truetype");
 }
 
+html, body {
+  height: 100%;
+  overflow: auto;
+}
+
+body {
+    -ms-overflow-style: none;     
+    scrollbar-width: none;       
+  }
+  
+  body::-webkit-scrollbar {
+    display: none;               
+  }
+  

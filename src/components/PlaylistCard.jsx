@@ -22,7 +22,7 @@ function PlaylistCard() {
         </div>
 
     <div>
-        <div className='bg-background-secondary flex pr-24 mt-3 rounded-md relative'>
+        <div className='bg-background-secondary flex pr-24 mt-3 pl-3 rounded-md relative'>
         <div className='flex items-center gap-1 absolute top-[50px] right-[25px] max-sm:top-[46px]'>
             <span><img className='w-8 h-4' src="/assets/icons/iran.png" alt="iran" /></span>
             <span><ChevronLeft/></span>
@@ -55,7 +55,7 @@ function PlaylistCard() {
         </div>
       </div>
     <div>
-        <div className='bg-background-secondary flex pr-24 mb-4 rounded-md relative'>
+        <div className='bg-background-secondary flex pr-24 pl-3 mb-4 rounded-md relative'>
         <div className='flex items-center gap-1 absolute top-[50px] right-[25px] max-sm:top-[46px]'>
             <span><img className='w-6 h-6' src="/assets/icons/world.png" alt="world" /></span>
             <span><ChevronLeft/></span>

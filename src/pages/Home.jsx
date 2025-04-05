@@ -67,14 +67,14 @@ function Home() {
               (پادکست)
             </span>
           </h2>
-          <span className='flex items-center text-text-accent font-kalameh-base'>
+          <span className='flex items-center text-text-accent font-kalameh-base pl-3'>
             <button className='text-xs'>دیدن همه</button>
             <ChevronLeft />
           </span>
         </div>
         {loading ? <Shimmer className="w-[95%] mx-auto h-[180px]" /> : <MusicTemplate reverse={false} showHeader={false} />}
         <button className='cursor-pointer'>
-          {loading ? <Shimmer className="w-[93%] mx-auto h-[100px] rounded-2xl" /> : <img className='px-4 rounded-2xl max-sm:pt-3 max-sm:h-32' src="/assets/banner/DJBanner.png" />}
+          {loading ? <Shimmer className="w-[93%] mx-auto h-[100px] rounded-2xl" /> : <img className='px-4 pt-4 rounded-2xl max-sm:pt-3 max-sm:h-32' src="/assets/banner/DJBanner.png" />}
         </button>
       </div>
 

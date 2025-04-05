@@ -56,7 +56,7 @@ function  MusicTemplate({titr,icon,reverse,showHeader}) {
                 </div>
         )}
         {/* musics */}
-        <div className='pr-3'>
+        <div className='pr-3 pl-3'>
             <Swiper
             modules={[Navigation]}
             spaceBetween={9}
