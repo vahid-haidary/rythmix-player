@@ -7,9 +7,10 @@ import { setCurrentSong } from '../store/slices/songSlice';
 import categoryData from '../data/categoryData';
 import { AnimatePresence } from 'framer-motion';
 import SortBottomSheet from '../components/SortBottomSheet';
+import { VITE_API_URL } from '../BASE';
 
 function PlaylistSongPage() {
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = VITE_API_URL;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

@@ -6,12 +6,14 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { setCurrentSong,setSongs } from '../store/slices/songSlice'
+import { VITE_API_URL } from '../BASE'
 
 function  MusicTemplate({titr,icon,reverse,showHeader}) {
   const songs = useSelector(state => state.songs.data);
 
 
-    const API_URL = import.meta.env.VITE_API_URL
+  const API_URL = VITE_API_URL
+
     const [loading,setLoading] = useState(true)
     const [error, setError] = useState(null)
     const dispatch = useDispatch()
